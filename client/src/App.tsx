@@ -8,24 +8,26 @@ import {Alert} from "./components/alert/Alert";
 
 import { refreshToken } from "./redux/actions/authAction";
 import { getCategories } from "./redux/actions/categoryAction";
+import { getHomeBlogs } from './redux/actions/blogAction';
 
 const App = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(refreshToken())
-    dispatch(getCategories())
-  }, [dispatch])
+    dispatch(getHomeBlogs());
+    dispatch(getCategories());
+    dispatch(refreshToken());
+  }, [dispatch]);
 
   return (
-    <div className="container">
+    <div className='container'>
       <Router>
         <Alert />
         <Header />
 
         <Switch>
-          <Route exact path="/" component={PageRender} />
-          <Route exact path="/:page" component={PageRender} />
-          <Route exact path="/:page/:slug" component={PageRender} />
+          <Route exact path='/' component={PageRender} />
+          <Route exact path='/:page' component={PageRender} />
+          <Route exact path='/:page/:slug' component={PageRender} />
         </Switch>
 
         <Footer />
