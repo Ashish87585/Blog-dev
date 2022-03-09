@@ -9,19 +9,23 @@ import UserInfo from '../../components/profile/UserInfo';
 const Profile = () => {
   const { slug }: IParams = useParams();
   const { authReducer } = useSelector((state: RootStore) => state);
-  return <>
-    <div className='row my-3'>
-        <div className="col-md-5 mb-3">
-            {
-                authReducer.user?._id === slug ? <UserInfo /> : <OtherInfo />
-            }
+  return (
+    <>
+      <div className='row my-3'>
+        <div className='col-md-5 mb-3'>
+          {authReducer.user?._id === slug ? (
+            <UserInfo />
+          ) : (
+            <OtherInfo id={slug} />
+          )}
         </div>
 
-        <div className="col-md-7">
-            <UserBlogs />
+        <div className='col-md-7'>
+          <UserBlogs />
         </div>
-    </div>
-  </>
+      </div>
+    </>
+  );
 };
 
 export default Profile;
