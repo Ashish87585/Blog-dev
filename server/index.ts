@@ -26,7 +26,8 @@ app.use('/api', routes.authRouter);
 app.use('/api', routes.userRouter);
 app.use('/api', routes.categoryRouter);
 app.use('/api', routes.blogRouter);
-app.use('/api', routes.commentRouter);
+app.use('/api', routes.commentRouter
+);
 
 //Database
 import './config/database'
