@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 
 const blogSchema = new mongoose.Schema({
-    user: { type: mongoose.Types.ObjectId, ref: 'user' },
+    user: { type: mongoose.Types.ObjectId, ref: 'User' },
     title: {
         type: String,
         require: true,
